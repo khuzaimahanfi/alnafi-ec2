@@ -88,16 +88,9 @@ driver.find_element(By.XPATH, "(//button[normalize-space()='Add to Cart'])[1]").
 time.sleep(5)
 driver.find_element(By.XPATH, "(//a[@class='bg-Bluish px-12 py-4 text-white rounded-lg'][normalize-space()='Go to cart'])[2]").click()
 time.sleep(5)
-half_yearly_cartb + half_yearly_carta = driver.find_element(By.XPATH, '//*[@id="__nuxt"]/div/main/section[1]/div[1]/div/div[1]/div[2]/div/p')
-cdprice = "Rs 1452485"
-if half_yearly_act_price == half_yearly_carta.text:
-    print("none")
-else:
-    try:
-    cdprice == half_yearly_cartb.text
-    print("this true")
-    except:
-    print("wrong price")
+half_yearly_cart = driver.find_element(By.XPATH, '//*[@id="__nuxt"]/div/main/section[1]/div[1]/div/div[1]/div[2]/div/p')
+assert half_yearly_act_price == half_yearly_cart.text, "Text not found in the element"
+
 # empty cart
 cross_prod_1 = driver.find_element(By.XPATH, "(//span[contains(text(),'x')])[1]")
 cross_prod_1.click()
